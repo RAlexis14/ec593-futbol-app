@@ -1,33 +1,45 @@
 import { useState } from 'react';
 import {
-  SafeAreaView,
+  Image,
   StyleSheet,
   Text,
-  View,
+  TouchableOpacity,
 } from 'react-native';
 
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { router } from 'expo-router';
+
+import Header from '../components/Header';
+import InfoCard from '../components/InfoCard';
+import ProgressBar from '../components/ProgressBar';
+
 import { COLORS } from '../constants/colors';
-import { TEXTS } from '../constants/texts';
+
 import { useSplashTimer } from '../hooks/useSplashTimer';
 
-export default function Index() {
+export default function HomeScreen() {
   const [showHome, setShowHome] = useState(false);
 
   useSplashTimer(() => {
     setShowHome(true);
-  });
+  }, 3000);
 
   if (!showHome) {
     return (
       <SafeAreaView style={styles.splashContainer}>
-        <Text style={styles.logo}>⚽</Text>
+        <Image
+          source={require('../assets/images/logo-fef.jpg')}
+          style={styles.logo}
+        />
 
-        <Text style={styles.title}>
-          {TEXTS.splashTitle}
+        <Text style={styles.splashTitle}>
+          EC593
         </Text>
 
-        <Text style={styles.phrase}>
-          {TEXTS.splashPhrase}
+        <Text style={styles.splashPhrase}>
+          Arrecho nunca muere, y si muere,
+          muere arrecho.
         </Text>
       </SafeAreaView>
     );
@@ -35,29 +47,48 @@ export default function Index() {
 
   return (
     <SafeAreaView style={styles.homeContainer}>
+      <Header title="🇪🇨 LA TRI DEL 593" />
+
+      <Image
+        source={require('../assets/images/logo-fef.jpg')}
+        style={styles.homeLogo}
+      />
+
       <Text style={styles.teamTitle}>
-        🇪🇨 {TEXTS.teamName}
+        Selección Ecuatoriana de Fútbol
       </Text>
 
-      <View style={styles.card}>
-        <Text>Director Técnico:</Text>
-        <Text>{TEXTS.coach}</Text>
-      </View>
+      <InfoCard
+        title="Director Técnico"
+        value="Sebastián Beccacece"
+      />
 
-      <View style={styles.card}>
-        <Text>Capitán:</Text>
-        <Text>{TEXTS.captain}</Text>
-      </View>
+      <InfoCard
+        title="Capitán"
+        value="Enner Valencia"
+      />
 
-      <View style={styles.card}>
-        <Text>Objetivo:</Text>
-        <Text>{TEXTS.goal}</Text>
-      </View>
+      <InfoCard
+        title="Objetivo"
+        value="Clasificar y competir en el Mundial 2026"
+      />
 
-      <View style={styles.card}>
-        <Text>Probabilidad de ganar el Mundial:</Text>
-        <Text>{TEXTS.fanFaith}</Text>
-      </View>
+      <ProgressBar percentage={99} />
+
+      <Text style={styles.quote}>
+        "La fe no juega, pero empuja a la Tri."
+      </Text>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() =>
+          router.push('/convocados' as any)
+        }
+      >
+        <Text style={styles.buttonText}>
+          Ver Convocados →
+        </Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -68,25 +99,27 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.secondary,
-    padding: 20,
+    paddingHorizontal: 20,
   },
 
   logo: {
-    fontSize: 80,
+    width: 140,
+    height: 140,
+    resizeMode: 'contain',
     marginBottom: 20,
   },
 
-  title: {
-    fontSize: 40,
+  splashTitle: {
+    fontSize: 42,
     fontWeight: 'bold',
     color: COLORS.primary,
   },
 
-  phrase: {
+  splashPhrase: {
     marginTop: 20,
-    textAlign: 'center',
     color: COLORS.white,
-    fontSize: 18,
+    textAlign: 'center',
+    fontSize: 16,
   },
 
   homeContainer: {
@@ -95,17 +128,39 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 
-  teamTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
+  homeLogo: {
+    width: 120,
+    height: 120,
+    alignSelf: 'center',
+    resizeMode: 'contain',
+    marginBottom: 10,
   },
 
-  card: {
-    backgroundColor: COLORS.white,
-    padding: 16,
+  teamTitle: {
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: COLORS.text,
+  },
+
+  quote: {
+    textAlign: 'center',
+    fontStyle: 'italic',
+    marginBottom: 20,
+    color: COLORS.gray,
+  },
+
+  button: {
+    backgroundColor: COLORS.secondary,
+    paddingVertical: 14,
     borderRadius: 12,
-    marginBottom: 12,
+  },
+
+  buttonText: {
+    color: COLORS.white,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });

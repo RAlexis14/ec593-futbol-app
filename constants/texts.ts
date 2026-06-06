@@ -1,18 +1,18 @@
 export const TEXTS = {
-  appName: 'EC593 Fútbol App',
+    appName: 'EC593 Fútbol App',
 
-  splashTitle: 'EC593',
+    splashTitle: 'EC593',
 
-  splashPhrase:
-    'Arrecho nunca muere, y si muere, muere arrecho.',
+    splashPhrase:
+        'Arrecho nunca muere, y si muere, muere arrecho.',
 
-  teamName: 'Selección Ecuatoriana de Fútbol',
+    teamName: 'Selección Ecuatoriana de Fútbol',
 
-  coach: 'Sebastián Beccacece',
+    coach: 'Sebastián Beccacece',
 
-  captain: 'Enner Valencia',
+    captain: 'Enner Valencia',
 
-  goal: 'Clasificar y competir en el Mundial 2026',
+    goal: 'Competir y ganar el Mundial 2026',
 
-  fanFaith: '99% de fe',
+    fanFaith: '99% de fe',
 };
