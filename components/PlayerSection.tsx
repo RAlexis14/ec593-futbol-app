@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+import PlayerCard from './PlayerCard';
+
 interface Props {
     title: string;
     players: string[];
@@ -11,29 +13,36 @@ export default function PlayerSection({
 }: Props) {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title}>
+                {title}
+            </Text>
 
-            {players.map((player) => (
-                <Text key={player} style={styles.player}>
-                    ⚽ {player}
-                </Text>
-            ))}
+            <View style={styles.playersContainer}>
+                {players.map((player) => (
+                    <PlayerCard
+                        key={player}
+                        name={player}
+                    />
+                ))}
+            </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        marginBottom: 20,
+        marginBottom: 24,
     },
 
     title: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: 8,
+        marginBottom: 12,
     },
 
-    player: {
-        marginBottom: 6,
+    playersContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
     },
 });

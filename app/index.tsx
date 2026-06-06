@@ -29,7 +29,7 @@ export default function HomeScreen() {
     return (
       <SafeAreaView style={styles.splashContainer}>
         <Image
-          source={require('../assets/images/logo-fef.jpg')}
+          source={require('../assets/images/logo-fef.png')}
           style={styles.logo}
         />
 
@@ -50,7 +50,7 @@ export default function HomeScreen() {
       <Header title="🇪🇨 LA TRI DEL 593" />
 
       <Image
-        source={require('../assets/images/logo-fef.jpg')}
+        source={require('../assets/images/logo-fef.png')}
         style={styles.homeLogo}
       />
 
@@ -69,8 +69,8 @@ export default function HomeScreen() {
       />
 
       <InfoCard
-        title="Objetivo"
-        value="Clasificar y competir en el Mundial 2026"
+        title="Hito Único"
+        value="1era selección en vencer al anfitrión en un partido inaugural (Qatar 2022)"
       />
 
       <ProgressBar percentage={99} />
@@ -103,8 +103,8 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: 140,
-    height: 140,
+    width: 200,
+    height: 200,
     resizeMode: 'contain',
     marginBottom: 20,
   },
@@ -129,8 +129,8 @@ const styles = StyleSheet.create({
   },
 
   homeLogo: {
-    width: 120,
-    height: 120,
+    width: 130,
+    height: 130,
     alignSelf: 'center',
     resizeMode: 'contain',
     marginBottom: 10,
