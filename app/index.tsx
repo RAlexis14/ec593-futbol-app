@@ -1,21 +1,21 @@
 import { useState } from 'react';
+
 import {
   Image,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
 } from 'react-native';
 
-import { SafeAreaView } from 'react-native-safe-area-context';
-
 import { router } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Header from '../components/Header';
 import InfoCard from '../components/InfoCard';
 import ProgressBar from '../components/ProgressBar';
 
 import { COLORS } from '../constants/colors';
-
 import { useSplashTimer } from '../hooks/useSplashTimer';
 
 export default function HomeScreen() {
@@ -25,6 +25,7 @@ export default function HomeScreen() {
     setShowHome(true);
   }, 3000);
 
+  // Pantalla inicial o splash
   if (!showHome) {
     return (
       <SafeAreaView style={styles.splashContainer}>
@@ -38,57 +39,69 @@ export default function HomeScreen() {
         </Text>
 
         <Text style={styles.splashPhrase}>
-          Arrecho nunca muere, y si muere,
-          muere arrecho.
+          Arrecho nunca muere, y si muere, muere arrecho.
         </Text>
       </SafeAreaView>
     );
   }
 
+  // Pantalla principal
   return (
     <SafeAreaView style={styles.homeContainer}>
-      <Header title="🇪🇨 LA TRI DEL 593" />
-
-      <Image
-        source={require('../assets/images/logo-fef.png')}
-        style={styles.homeLogo}
-      />
-
-      <Text style={styles.teamTitle}>
-        Selección Ecuatoriana de Fútbol
-      </Text>
-
-      <InfoCard
-        title="Director Técnico"
-        value="Sebastián Beccacece"
-      />
-
-      <InfoCard
-        title="Capitán"
-        value="Enner Valencia"
-      />
-
-      <InfoCard
-        title="Hito Único"
-        value="1era selección en vencer al anfitrión en un partido inaugural (Qatar 2022)"
-      />
-
-      <ProgressBar percentage={99} />
-
-      <Text style={styles.quote}>
-        "La fe no juega, pero empuja a la Tri."
-      </Text>
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() =>
-          router.push('/convocados' as any)
-        }
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.buttonText}>
-          Ver Convocados →
+        <Header title="🇪🇨 LA TRI DEL 593" />
+
+        <Image
+          source={require('../assets/images/logo-fef.png')}
+          style={styles.homeLogo}
+        />
+
+        <Text style={styles.teamTitle}>
+          Selección Ecuatoriana de Fútbol
         </Text>
-      </TouchableOpacity>
+
+        <InfoCard
+          title="Director Técnico"
+          value="Sebastián Beccacece"
+        />
+
+        <InfoCard
+          title="Capitán"
+          value="Enner Valencia"
+        />
+
+        <InfoCard
+          title="Hito Único"
+          value="1era selección en vencer al anfitrión en un partido inaugural (Qatar 2022)"
+        />
+
+        <ProgressBar percentage={99} />
+
+        <Text style={styles.quote}>
+          "La fe no juega, pero empuja a la Tri."
+        </Text>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => router.push('/convocados' as any)}
+        >
+          <Text style={styles.buttonText}>
+            Ver Convocados →
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[styles.button, styles.secondButton]}
+          onPress={() => router.push('/no_convocados' as any)}
+        >
+          <Text style={styles.buttonText}>
+            Ver No Convocados →
+          </Text>
+        </TouchableOpacity>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -125,7 +138,11 @@ const styles = StyleSheet.create({
   homeContainer: {
     flex: 1,
     backgroundColor: COLORS.background,
+  },
+
+  scrollContent: {
     padding: 20,
+    paddingBottom: 50,
   },
 
   homeLogo: {
@@ -155,6 +172,10 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.secondary,
     paddingVertical: 14,
     borderRadius: 12,
+  },
+
+  secondButton: {
+    marginTop: 12,
   },
 
   buttonText: {
