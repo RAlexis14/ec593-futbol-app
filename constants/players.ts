@@ -5,6 +5,12 @@ export const PLAYERS = {
         'Gonzalo Valle',
     ],
 
+        destacados: [
+        'Pau Cubarsí',
+        'Rodrigo Hernández',
+        'Lamine Yamal',
+    ],
+
     defenders: [
         'Piero Hincapié',
         'Willian Pacho',

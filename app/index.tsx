@@ -4,11 +4,9 @@ import {
   Image,
   ScrollView,
   StyleSheet,
-  Text,
-  TouchableOpacity,
+  Text
 } from 'react-native';
 
-import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Header from '../components/Header';
@@ -30,16 +28,16 @@ export default function HomeScreen() {
     return (
       <SafeAreaView style={styles.splashContainer}>
         <Image
-          source={require('../assets/images/logo-fef.png')}
+          source={require('../assets/images/Bandera_España.png')}
           style={styles.logo}
         />
 
         <Text style={styles.splashTitle}>
-          EC593
+          ESP
         </Text>
 
         <Text style={styles.splashPhrase}>
-          Arrecho nunca muere, y si muere, muere arrecho.
+          España campeón del mundo (2026)
         </Text>
       </SafeAreaView>
     );
@@ -52,55 +50,46 @@ export default function HomeScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <Header title="🇪🇨 LA TRI DEL 593" />
+        <Header title="BIENVENIDO CAMPEÓN " />
 
         <Image
-          source={require('../assets/images/logo-fef.png')}
+          source={require('../assets/images/Bandera_España.png')}
           style={styles.homeLogo}
         />
 
         <Text style={styles.teamTitle}>
-          Selección Ecuatoriana de Fútbol
+          Y en segundo lugar......
         </Text>
+
+
+        <Header title="ARGENTINA " />
 
         <InfoCard
           title="Director Técnico"
-          value="Sebastián Beccacece"
+          value="Leonel Scaloni"
         />
 
         <InfoCard
           title="Capitán"
-          value="Enner Valencia"
+          value="Lionel Messi"
         />
 
         <InfoCard
-          title="Hito Único"
-          value="1era selección en vencer al anfitrión en un partido inaugural (Qatar 2022)"
+          title="Marcadaor Final"
+          value="1-2"
         />
 
-        <ProgressBar percentage={99} />
+        <ProgressBar percentage={100} />
 
         <Text style={styles.quote}>
-          "La fe no juega, pero empuja a la Tri."
+          "España el equipo mas dominante del mundial"
         </Text>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => router.push('/convocados' as any)}
-        >
-          <Text style={styles.buttonText}>
-            Ver Convocados →
-          </Text>
-        </TouchableOpacity>
 
-        <TouchableOpacity
-          style={[styles.button, styles.secondButton]}
-          onPress={() => router.push('/no_convocados' as any)}
-        >
-          <Text style={styles.buttonText}>
-            Ver No Convocados →
-          </Text>
-        </TouchableOpacity>
+
+
+        
+
       </ScrollView>
     </SafeAreaView>
   );
