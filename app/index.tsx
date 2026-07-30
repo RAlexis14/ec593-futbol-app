@@ -75,8 +75,8 @@ export default function HomeScreen() {
         />
 
         <InfoCard
-          title="Marcadaor Final"
-          value="1-2"
+          title="Marcador Final."
+          value="1-2."
         />
 
         <ProgressBar percentage={100} />

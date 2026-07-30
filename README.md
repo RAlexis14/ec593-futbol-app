@@ -1,4 +1,4 @@
-# 🇪🇨 ESPAÑA Fútbol App
+# 🇪s ESPAÑA Fútbol App
 
 Aplicación móvil desarrollada con **React Native**, **Expo Router** y **Expo SDK 54**, que presenta información básica de la Selección de España.
 
@@ -12,8 +12,13 @@ El proyecto fue desarrollado con fines académicos para familiarizarse con el de
 
 ## 📱 Características
 
-- Pantalla de bienvenida (Splash Screen).
-- Logo de la Selección España.
+* Splash Screen con España, indicador y paso automático al Home.
+* Barra inferior (Bottom Navigation Bar) con las tres pestañas y navegación funcional.
+* Pestaña Home con bienvenida y tarjeta del subcampeón Argentina.
+* Pestaña España con sus tres componentes.
+* Pestaña Acerca de con foto y descripción de cada estudiante.
+* Reutilización de componentes, props y organización del código.
+
 
 ---
 
@@ -23,6 +28,7 @@ El proyecto fue desarrollado con fines académicos para familiarizarse con el de
 - Expo SDK 54
 - Expo Router
 - TypeScript
+- Expo Image
 - Expo Go
 
 ---
@@ -86,19 +92,29 @@ git clone https://github.com/RAlexis14/ec593-futbol-app.git
 cd ec593-futbol-app
 ```
 
-### 3. Instalar dependencias
+### 3. Cambiar a la rama de desarrollo
+
+```bash
+git switch RommelPachacama
+```
+También se puede utilizar:
+```bash
+git checkout RommelPachacama
+```
+
+### 4. Instalar dependencias
 
 ```bash
 npm install
 ```
 
-### 4. Verificar Expo
+### 5. Verificar Expo
 
 ```bash
 npx expo --version
 ```
 
-### 5. Ejecutar la aplicación
+### 6. Ejecutar la aplicación
 
 ```bash
 npx expo start
@@ -115,7 +131,6 @@ Una vez iniciado el proyecto:
 3. Esperar la carga inicial de la aplicación.
 4. La aplicación se ejecutará automáticamente.
 
----
 
 
 ---

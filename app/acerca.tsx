@@ -1,81 +1,184 @@
-import { router } from 'expo-router';
-import { ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Image } from 'expo-image';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import Header from '../components/Header';
-import PlayerSection from '../components/PlayerSection';
+type Developer = {
+    id: number;
+    name: string;
+    initials: string;
+    role: string;
+    description: string;
+    image: number;
+};
 
-import { COLORS } from '../constants/colors';
-import { PLAYERS } from '../constants/players';
+const DEVELOPERS: Developer[] = [
+    {
+        id: 1,
+        name: 'Rommel Pachacama',
+        initials: 'RP',
+        role: 'Estudiante de Ingeniería en Sistemas de Información',
+        description:
+            'Responsable del desarrollo móvil, la navegación y el diseño de interfaces de la aplicación.',
+        image: require('../assets/images/perfil-rommel.gif'),
+    },
+];
 
-export default function ConvocadosScreen() {
-    const handleGoBack = () => {
-        router.back();
-    };
-
+export default function AboutScreen() {
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.safeArea}>
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={styles.content}
             >
-                <Header title="Convocados Ecuador 🇪🇨" />
+                <Text style={styles.title}>Acerca de</Text>
 
-                <PlayerSection
-                    title="🧤 Porteros"
-                    players={PLAYERS.goalkeepers}
-                />
+                <Text style={styles.subtitle}>
+                    Conoce quién desarrolló esta aplicación
+                </Text>
 
-                <PlayerSection
-                    title="🛡️ Defensas"
-                    players={PLAYERS.defenders}
-                />
+                <View style={styles.card}>
+                    {DEVELOPERS.map((developer) => (
+                        <View key={developer.id} style={styles.profile}>
+                            <View style={styles.avatarBorder}>
+                                <Image
+                                    source={developer.image}
+                                    style={styles.avatar}
+                                    contentFit="cover"
+                                    autoplay
+                                />
+                            </View>
 
-                <PlayerSection
-                    title="🎯 Mediocampistas"
-                    players={PLAYERS.midfielders}
-                />
+                            <View style={styles.information}>
+                                <Text style={styles.name}>{developer.name}</Text>
+                                <Text style={styles.role}>{developer.role}</Text>
+                                <Text style={styles.description}>
+                                    {developer.description}
+                                </Text>
+                            </View>
+                        </View>
+                    ))}
+                </View>
 
-                <PlayerSection
-                    title="⚽ Delanteros"
-                    players={PLAYERS.forwards}
-                />
 
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={handleGoBack}
-                >
-                    <Text style={styles.buttonText}>
-                        ← Volver al Inicio
-                    </Text>
-                </TouchableOpacity>
+
+                <Text style={styles.footer}>EC593 Fútbol App · 2026</Text>
             </ScrollView>
         </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
+    safeArea: {
         flex: 1,
-        backgroundColor: COLORS.background,
+        backgroundColor: '#F4F7FC',
     },
 
     content: {
-        padding: 20,
-        paddingBottom: 40,
+        flexGrow: 1,
+        paddingHorizontal: 20,
+        paddingTop: 18,
+        paddingBottom: 30,
     },
 
-    button: {
-        marginTop: 20,
-        backgroundColor: COLORS.secondary,
-        paddingVertical: 14,
-        borderRadius: 12,
+    title: {
+        color: '#111827',
+        fontSize: 28,
+        fontWeight: '800',
     },
 
-    buttonText: {
-        color: COLORS.white,
+    subtitle: {
+        color: '#6B7280',
+        fontSize: 15,
+        marginTop: 4,
+        marginBottom: 22,
+    },
+
+    card: {
+        backgroundColor: '#FFFFFF',
+        borderRadius: 20,
+        padding: 18,
+        elevation: 3,
+        shadowColor: '#000000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.08,
+        shadowRadius: 6,
+    },
+
+    profile: {
+        alignItems: 'center',
+    },
+
+    avatarBorder: {
+        width: 118,
+        height: 118,
+        borderRadius: 59,
+        borderWidth: 4,
+        borderColor: '#ffaa00',
+        padding: 4,
+        backgroundColor: '#FFFFFF',
+    },
+
+    avatar: {
+        width: '100%',
+        height: '100%',
+        borderRadius: 54,
+        backgroundColor: '#E5E7EB',
+    },
+
+    information: {
+        alignItems: 'center',
+        marginTop: 14,
+    },
+
+    name: {
+        color: '#003DA5',
+        fontSize: 21,
+        fontWeight: '800',
         textAlign: 'center',
+    },
+
+    role: {
+        color: '#374151',
+        fontSize: 14,
+        fontWeight: '600',
+        textAlign: 'center',
+        marginTop: 5,
+    },
+
+    description: {
+        color: '#6B7280',
+        fontSize: 14,
+        lineHeight: 20,
+        textAlign: 'center',
+        marginTop: 10,
+    },
+
+    projectInformation: {
+        backgroundColor: '#FFFFFF',
+        borderLeftWidth: 4,
+        borderLeftColor: '#FFD100',
+        borderRadius: 14,
+        padding: 16,
+        marginTop: 18,
+    },
+
+    projectTitle: {
+        color: '#003DA5',
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: '800',
+    },
+
+    projectText: {
+        color: '#4B5563',
+        fontSize: 14,
+        lineHeight: 20,
+        marginTop: 6,
+    },
+
+    footer: {
+        color: '#6B7280',
+        fontSize: 12,
+        textAlign: 'center',
+        marginTop: 26,
     },
 });
