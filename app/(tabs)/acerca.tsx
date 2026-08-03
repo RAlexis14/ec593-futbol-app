@@ -1,5 +1,12 @@
-import { Image, ImageSource } from 'expo-image';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image } from 'expo-image';
+
+import {
+    ScrollView,
+    StyleSheet,
+    Text,
+    View,
+} from 'react-native';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 type Developer = {
@@ -8,7 +15,7 @@ type Developer = {
     initials: string;
     role: string;
     description: string;
-    image: ImageSource;
+    image: number;
 };
 
 const DEVELOPERS: Developer[] = [
@@ -19,11 +26,10 @@ const DEVELOPERS: Developer[] = [
         role: 'Estudiante de Ingeniería en Sistemas de Información',
         description:
             'Responsable del desarrollo móvil, la navegación y el diseño de interfaces de la aplicación.',
-        image: require('../assets/images/perfil-rommel.gif'),
+        image: require('../../assets/images/perfil-rommel.gif'),
     },
-    
 
-    
+
 ];
 
 export default function AboutScreen() {
@@ -42,9 +48,12 @@ export default function AboutScreen() {
 
                 {/* Tarjetas de integrantes */}
                 {DEVELOPERS.map((developer) => (
-                    <View key={developer.id} style={styles.card}>
+                    <View
+                        key={developer.id}
+                        style={styles.card}
+                    >
                         <View style={styles.profile}>
-                            {/* Imagen de perfil */}
+                            {/* GIF o imagen de perfil */}
                             <View style={styles.avatarBorder}>
                                 <Image
                                     source={developer.image}
@@ -56,9 +65,13 @@ export default function AboutScreen() {
 
                             {/* Información personal */}
                             <View style={styles.information}>
-                                <Text style={styles.name}>{developer.name}</Text>
+                                <Text style={styles.name}>
+                                    {developer.name}
+                                </Text>
 
-                                <Text style={styles.role}>{developer.role}</Text>
+                                <Text style={styles.role}>
+                                    {developer.role}
+                                </Text>
 
                                 <Text style={styles.description}>
                                     {developer.description}
@@ -68,8 +81,9 @@ export default function AboutScreen() {
                     </View>
                 ))}
 
-                {/* Pie de página */}
-                <Text style={styles.footer}>España Fútbol App · 2026</Text>
+                <Text style={styles.footer}>
+                    España Fútbol App · 2026
+                </Text>
             </ScrollView>
         </SafeAreaView>
     );
@@ -82,7 +96,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#F4F7FC',
     },
 
-    // Contenido desplazable
     content: {
         flexGrow: 1,
         paddingHorizontal: 20,
@@ -104,13 +117,14 @@ const styles = StyleSheet.create({
         marginBottom: 22,
     },
 
-    // Tarjeta principal
+    // Tarjeta del integrante
     card: {
         backgroundColor: '#FFFFFF',
         borderRadius: 20,
         padding: 18,
         marginBottom: 16,
         elevation: 3,
+
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,
@@ -120,23 +134,23 @@ const styles = StyleSheet.create({
         shadowRadius: 6,
     },
 
-    // Perfil
     profile: {
         alignItems: 'center',
     },
 
-    // Borde de la imagen
+    // Imagen circular
     avatarBorder: {
         width: 118,
         height: 118,
-        borderRadius: 59,
+        justifyContent: 'center',
+        alignItems: 'center',
         borderWidth: 4,
         borderColor: '#FFAA00',
+        borderRadius: 59,
         padding: 4,
         backgroundColor: '#FFFFFF',
     },
 
-    // Imagen o GIF
     avatar: {
         width: '100%',
         height: '100%',
@@ -144,7 +158,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#E5E7EB',
     },
 
-    // Datos del integrante
+    // Datos personales
     information: {
         alignItems: 'center',
         marginTop: 14,
@@ -178,6 +192,6 @@ const styles = StyleSheet.create({
         color: '#6B7280',
         fontSize: 12,
         textAlign: 'center',
-        marginTop: 12,
+        marginTop: 10,
     },
 });
