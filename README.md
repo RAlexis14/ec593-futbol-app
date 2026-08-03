@@ -92,7 +92,7 @@ git clone https://github.com/RAlexis14/ec593-futbol-app.git
 cd ec593-futbol-app
 ```
 
-### 3. Cambiar a la rama de desarrollo
+### 3. Cambiar a la rama de desarrollo.
 
 ```bash
 git switch RommelPachacama
