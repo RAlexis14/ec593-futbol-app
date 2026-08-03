@@ -64,7 +64,7 @@ export default function HomeScreen() {
 
         <Header title="ARGENTINA " />
 
-                <Image
+        <Image
           source={require('../assets/images/argentina.png')}
           style={styles.homeLogo}
         />
@@ -93,7 +93,7 @@ export default function HomeScreen() {
 
 
 
-        
+
 
       </ScrollView>
     </SafeAreaView>
