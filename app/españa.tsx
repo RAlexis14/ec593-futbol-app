@@ -14,14 +14,11 @@ import InfoCard from '../components/InfoCard';
 import ProgressBar from '../components/ProgressBar';
 
 import { COLORS } from '../constants/colors';
-import { useSplashTimer } from '../hooks/useSplashTimer';
 
 export default function HomeScreen() {
     const [showHome, setShowHome] = useState(false);
 
-    useSplashTimer(() => {
-        setShowHome(true);
-    }, 3000);
+
 
 
 
@@ -49,6 +46,11 @@ export default function HomeScreen() {
                 <InfoCard
                     title="Director Técnico"
                     value="Luis de la Fuente"
+                    details={[
+                        'Nacionalidad: Española',
+                        'En el cargo desde: 2022',
+                        'Estilo: juego de posesión y presión alta',
+                    ]}
                 />
 
                 <InfoCard
@@ -71,26 +73,25 @@ export default function HomeScreen() {
                     JUGADORES DESTACADOS
                 </Text>
 
-
-<InfoCard
-                    title="Balon de oro mundial"
-                    value="Rodrigo Hernández"
-                />
-
                 <InfoCard
-                    title="Mejor juvenil del toneo "
-                    value="Rodrigo Hernández"
+                    title="Destacados del equipo"
+                    items={[
+                        {
+                            label: 'Mejor jugador',
+                            value: 'Lamine Yamal',
+                        },
+                        {
+                            label: 'Jugador revelación',
+                            value: 'Nico Williams',
+                        },
+                        {
+                            label: 'Goleador',
+                            value: 'Álvaro Morata',
+                        },
+                    ]}
                 />
 
-                <InfoCard
-                    title="Fichaje Estrella"
-                    value="Marc Cucurrela ( REAL MADRID)"
-                />
 
-
-
-
-                
 
             </ScrollView>
         </SafeAreaView>
@@ -137,8 +138,8 @@ const styles = StyleSheet.create({
     },
 
     homeLogo: {
-        width: 130,
-        height: 130,
+        width: 200,
+        height: 200,
         alignSelf: 'center',
         resizeMode: 'contain',
         marginBottom: 10,
