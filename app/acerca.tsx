@@ -1,4 +1,4 @@
-import { Image } from 'expo-image';
+import { Image, ImageSource } from 'expo-image';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -8,7 +8,7 @@ type Developer = {
     initials: string;
     role: string;
     description: string;
-    image: number;
+    image: ImageSource;
 };
 
 const DEVELOPERS: Developer[] = [
@@ -21,6 +21,9 @@ const DEVELOPERS: Developer[] = [
             'Responsable del desarrollo móvil, la navegación y el diseño de interfaces de la aplicación.',
         image: require('../assets/images/perfil-rommel.gif'),
     },
+    
+
+    
 ];
 
 export default function AboutScreen() {
@@ -30,15 +33,18 @@ export default function AboutScreen() {
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={styles.content}
             >
+                {/* Encabezado */}
                 <Text style={styles.title}>Acerca de</Text>
 
                 <Text style={styles.subtitle}>
-                    Conoce quién desarrolló esta aplicación
+                    Conoce quiénes desarrollaron esta aplicación
                 </Text>
 
-                <View style={styles.card}>
-                    {DEVELOPERS.map((developer) => (
-                        <View key={developer.id} style={styles.profile}>
+                {/* Tarjetas de integrantes */}
+                {DEVELOPERS.map((developer) => (
+                    <View key={developer.id} style={styles.card}>
+                        <View style={styles.profile}>
+                            {/* Imagen de perfil */}
                             <View style={styles.avatarBorder}>
                                 <Image
                                     source={developer.image}
@@ -48,31 +54,35 @@ export default function AboutScreen() {
                                 />
                             </View>
 
+                            {/* Información personal */}
                             <View style={styles.information}>
                                 <Text style={styles.name}>{developer.name}</Text>
+
                                 <Text style={styles.role}>{developer.role}</Text>
+
                                 <Text style={styles.description}>
                                     {developer.description}
                                 </Text>
                             </View>
                         </View>
-                    ))}
-                </View>
+                    </View>
+                ))}
 
-
-
-                <Text style={styles.footer}>EC593 Fútbol App · 2026</Text>
+                {/* Pie de página */}
+                <Text style={styles.footer}>España Fútbol App · 2026</Text>
             </ScrollView>
         </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
+    // Pantalla
     safeArea: {
         flex: 1,
         backgroundColor: '#F4F7FC',
     },
 
+    // Contenido desplazable
     content: {
         flexGrow: 1,
         paddingHorizontal: 20,
@@ -80,6 +90,7 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
     },
 
+    // Encabezado
     title: {
         color: '#111827',
         fontSize: 28,
@@ -93,31 +104,39 @@ const styles = StyleSheet.create({
         marginBottom: 22,
     },
 
+    // Tarjeta principal
     card: {
         backgroundColor: '#FFFFFF',
         borderRadius: 20,
         padding: 18,
+        marginBottom: 16,
         elevation: 3,
         shadowColor: '#000000',
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
         shadowOpacity: 0.08,
         shadowRadius: 6,
     },
 
+    // Perfil
     profile: {
         alignItems: 'center',
     },
 
+    // Borde de la imagen
     avatarBorder: {
         width: 118,
         height: 118,
         borderRadius: 59,
         borderWidth: 4,
-        borderColor: '#ffaa00',
+        borderColor: '#FFAA00',
         padding: 4,
         backgroundColor: '#FFFFFF',
     },
 
+    // Imagen o GIF
     avatar: {
         width: '100%',
         height: '100%',
@@ -125,6 +144,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#E5E7EB',
     },
 
+    // Datos del integrante
     information: {
         alignItems: 'center',
         marginTop: 14,
@@ -153,32 +173,11 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
 
-    projectInformation: {
-        backgroundColor: '#FFFFFF',
-        borderLeftWidth: 4,
-        borderLeftColor: '#FFD100',
-        borderRadius: 14,
-        padding: 16,
-        marginTop: 18,
-    },
-
-    projectTitle: {
-        color: '#003DA5',
-        fontSize: 16,
-        fontWeight: '800',
-    },
-
-    projectText: {
-        color: '#4B5563',
-        fontSize: 14,
-        lineHeight: 20,
-        marginTop: 6,
-    },
-
+    // Pie de página
     footer: {
         color: '#6B7280',
         fontSize: 12,
         textAlign: 'center',
-        marginTop: 26,
+        marginTop: 12,
     },
 });
