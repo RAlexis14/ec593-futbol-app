@@ -28,17 +28,20 @@ export default function HomeScreen() {
     return (
       <SafeAreaView style={styles.splashContainer}>
         <Image
-          source={require('../assets/images/Bandera_España.png')}
+          source={require('../assets/images/cne-logo.png')}
           style={styles.logo}
         />
 
         <Text style={styles.splashTitle}>
-          ESP
+          BIENVENIDOS
         </Text>
 
         <Text style={styles.splashPhrase}>
-          España campeón del mundo (2026)
+          Plataforma de CNE 2026
         </Text>
+
+        <ProgressBar percentage={60} />
+
       </SafeAreaView>
     );
   }

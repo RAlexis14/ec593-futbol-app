@@ -12,11 +12,11 @@ export default function RootLayout() {
       screenOptions={{
         headerShown: false,
 
-        tabBarActiveTintColor: '#FFD100',
-        tabBarInactiveTintColor: '#FFFFFF',
+        tabBarActiveTintColor: '#e6161a',
+        tabBarInactiveTintColor: '#eae3e2',
 
         tabBarStyle: {
-          backgroundColor: '#003DA5',
+          backgroundColor: '#FFFFFF',
 
           // Aumenta la altura según los botones del celular
           height: 60 + bottomSpace,
