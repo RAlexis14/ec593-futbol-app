@@ -64,6 +64,11 @@ export default function HomeScreen() {
 
         <Header title="ARGENTINA " />
 
+                <Image
+          source={require('../assets/images/argentina.png')}
+          style={styles.homeLogo}
+        />
+
         <InfoCard
           title="Director Técnico"
           value="Leonel Scaloni"
