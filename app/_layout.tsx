@@ -1,11 +1,82 @@
-import { Stack } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-export default function Layout() {
+export default function RootLayout() {
+  const insets = useSafeAreaInsets();
+
+  const bottomSpace = Math.max(insets.bottom, 8);
+
   return (
-    <Stack
+    <Tabs
       screenOptions={{
         headerShown: false,
+
+        tabBarActiveTintColor: '#FFD100',
+        tabBarInactiveTintColor: '#FFFFFF',
+
+        tabBarStyle: {
+          backgroundColor: '#003DA5',
+
+          // Aumenta la altura según los botones del celular
+          height: 60 + bottomSpace,
+
+          // Sube los iconos para evitar la barra de Android
+          paddingBottom: bottomSpace,
+          paddingTop: 7,
+
+          borderTopWidth: 0,
+        },
+
+        tabBarLabelStyle: {
+          fontSize: 11,
+          fontWeight: 'bold',
+        },
+
+        tabBarHideOnKeyboard: true,
       }}
-    />
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons
+              name={focused ? 'home' : 'home-outline'}
+              size={size}
+              color={color}
+            />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="españa"
+        options={{
+          title: 'España',
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons
+              name={focused ? 'people' : 'people-outline'}
+              size={size}
+              color={color}
+            />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="acerca"
+        options={{
+          title: 'Acerca de',
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons
+              name={focused ? 'close-circle' : 'close-circle-outline'}
+              size={size}
+              color={color}
+            />
+          ),
+        }}
+      />
+    </Tabs>
   );
 }

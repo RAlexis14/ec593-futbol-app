@@ -6,5 +6,5 @@ export const COLORS = {
     white: '#FFFFFF',
     text: '#1F2937',
     gray: '#6B7280',
-    success: '#22C55E',
+    success: '#CE1126',
 };
