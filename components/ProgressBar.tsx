@@ -20,7 +20,7 @@ export default function ProgressBar({
             </View>
 
             <Text style={styles.text}>
-                {percentage}% de posesión de balón
+                {percentage}% de votos
             </Text>
         </View>
     );

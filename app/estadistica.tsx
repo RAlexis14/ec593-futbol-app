@@ -9,7 +9,6 @@ import {
 
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import Header from '../components/Header';
 import InfoCard from '../components/InfoCard';
 import ProgressBar from '../components/ProgressBar';
 
@@ -29,13 +28,19 @@ export default function HomeScreen() {
                 contentContainerStyle={styles.scrollContent}
                 showsVerticalScrollIndicator={false}
             >
-                <Header title="ESPAÑA " />
+
+
+                <InfoCard
+                    title="Estadisticas"
+                    value="Candidatos de la alcaldía de Quito"
+                />
+
                 <Text style={styles.teamTitle}>
-                    Selección Campeona
+                    Jorge Yunda Machado
                 </Text>
 
                 <Image
-                    source={require('../assets/images/Bandera_España.png')}
+                    source={require('../assets/images/jorge.jpg')}
                     style={styles.homeLogo}
                 />
 
@@ -44,52 +49,73 @@ export default function HomeScreen() {
 
 
                 <InfoCard
-                    title="Director Técnico"
-                    value="Luis de la Fuente"
+                    title="Postulante 1"
+                    value="LoroMero"
                     details={[
-                        'Nacionalidad: Española',
-                        'En el cargo desde: 2022',
-                        'Estilo: juego de posesión y presión alta',
+                        'Nacionalidad: Ecuatoriana',
+                        'Estuvo en el cargo en el año 2022',
+                        'CON EL 80 % votos estiamados',
+                    ]}
+
+                    
+                />
+
+
+                <ProgressBar percentage={80} />
+
+
+                                <Text style={styles.teamTitle}>
+                    Wilson Merino
+                </Text>
+
+                                <Image
+                    source={require('../assets/images/wilson.jpg')}
+                    style={styles.homeLogo}
+                />
+
+                                <InfoCard
+                    title="Postulante 2"
+                    value="Wilsin593"
+                    details={[
+                        'Nacionalidad: Ecuatoriana',
+                        'Tiene grandes aspiraciones para ser Alcalde segun los porcentajes estimados',
+                        'CON EL 60 % votos estiamados',
                     ]}
                 />
 
-                <InfoCard
-                    title="Capitán"
-                    value="Rodrigo Hernández"
-                />
+                                <ProgressBar percentage={60} />
 
-                <InfoCard
-                    title="Marcador"
-                    value="1-2"
-                />
 
-                <ProgressBar percentage={100} />
-
-                <Text style={styles.quote}>
-                    "España el equipo mas dominante del mundial"
+                                <Text style={styles.teamTitle}>
+                    Carla Larrea
                 </Text>
 
-                <Text style={styles.teamTitle}>
-                    JUGADORES DESTACADOS
-                </Text>
+                                <Image
+                    source={require('../assets/images/carla.jpg')}
+                    style={styles.homeLogo}
+                />
 
+                
                 <InfoCard
-                    title="Destacados del equipo"
-                    items={[
-                        {
-                            label: 'Mejor jugador',
-                            value: 'Lamine Yamal',
-                        },
-                        {
-                            label: 'Jugador revelación',
-                            value: 'Nico Williams',
-                        },
-                        {
-                            label: 'Goleador',
-                            value: 'Álvaro Morata',
-                        },
+                    title="Postulante 3"
+                    value="Carlita"
+                    details={[
+                        'Nacionalidad: Ecuatoriana',
+                        'La mujer que mas votos estimados mantiens al dia de hoy ',
+                        'CON EL 40 % votos estiamados',
                     ]}
+
+                    
                 />
+
+                                                <ProgressBar percentage={40} />
+
+
+
+
+
+
+
 
 
 

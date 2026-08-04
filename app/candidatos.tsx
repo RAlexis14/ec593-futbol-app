@@ -11,15 +11,40 @@ type Developer = {
     image: ImageSource;
 };
 
+
+
 const DEVELOPERS: Developer[] = [
+
+
+    
     {
         id: 1,
-        name: 'Rommel Pachacama',
+        name: 'Jorge Yunda Machado',
         initials: 'RP',
-        role: 'Estudiante de Ingeniería en Sistemas de Información',
+        role: 'Yunda fue elegido alcalde en 2019',
         description:
-            'Responsable del desarrollo móvil, la navegación y el diseño de interfaces de la aplicación.',
-        image: require('../assets/images/perfil-rommel.gif'),
+            'Una de sus obras principales es realizar el nuevo estadio OLIMPICO en la Mitad del Mundo.',
+        image: require('../assets/images/jorge.jpg'),
+    },
+
+    {
+        id: 2,
+        name: 'Wilson Merino Rivadeneira',
+        initials: 'RP',
+        role: 'Movimiento Imparables 79',
+        description:
+            'Tiene como obra principal el metro de Quito desde el Labrador a Calderon.',
+        image: require('../assets/images/wilson.jpg'),
+    },
+
+    {
+        id: 3,
+        name: 'Carla Larrea',
+        initials: 'RP',
+        role: 'El movimiento oficialista Acción Democrática Nacional (ADN)',
+        description:
+            'Su principal obra se basa en la construcción de la nueva Universidad en el Sur de Quito.',
+        image: require('../assets/images/carla.jpg'),
     },
     
 
@@ -34,10 +59,10 @@ export default function AboutScreen() {
                 contentContainerStyle={styles.content}
             >
                 {/* Encabezado */}
-                <Text style={styles.title}>Acerca de</Text>
+                <Text style={styles.title}>Candidatos</Text>
 
                 <Text style={styles.subtitle}>
-                    Conoce quiénes desarrollaron esta aplicación
+                    Conoce quiénes seran los principales nombres para la alcaldía de Quito
                 </Text>
 
                 {/* Tarjetas de integrantes */}
@@ -69,7 +94,7 @@ export default function AboutScreen() {
                 ))}
 
                 {/* Pie de página */}
-                <Text style={styles.footer}>España Fútbol App · 2026</Text>
+                <Text style={styles.footer}>CNE App · 2026</Text>
             </ScrollView>
         </SafeAreaView>
     );

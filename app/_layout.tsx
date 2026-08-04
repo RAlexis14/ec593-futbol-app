@@ -51,9 +51,9 @@ export default function RootLayout() {
       />
 
       <Tabs.Screen
-        name="españa"
+        name="candidatos"
         options={{
-          title: 'España',
+          title: 'Candidatos',
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons
               name={focused ? 'people' : 'people-outline'}
@@ -65,12 +65,12 @@ export default function RootLayout() {
       />
 
       <Tabs.Screen
-        name="acerca"
+        name="estadistica"
         options={{
-          title: 'Acerca de',
+          title: 'Estadistica',
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons
-              name={focused ? 'close-circle' : 'close-circle-outline'}
+              name={focused ? 'bar-chart' : 'bar-chart-outline'}
               size={size}
               color={color}
             />
