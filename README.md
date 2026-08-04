@@ -1,6 +1,6 @@
-# 🇪s ESPAÑA Fútbol App
+# CNE App
 
-Aplicación móvil desarrollada con **React Native**, **Expo Router** y **Expo SDK 54**, que presenta información básica de la Selección de España.
+Aplicación móvil desarrollada con **React Native**, **Expo Router** y **Expo SDK 54**, que presenta información básica del CNE.
 
 El proyecto fue desarrollado con fines académicos para familiarizarse con el desarrollo de aplicaciones móviles multiplataforma, la estructura de proyectos Expo y los componentes fundamentales de React Native.
 
@@ -12,11 +12,11 @@ El proyecto fue desarrollado con fines académicos para familiarizarse con el de
 
 ## 📱 Características
 
-* Splash Screen con España, indicador y paso automático al Home.
+* Splash Screen con CNE, indicador y paso automático al Home.
 * Barra inferior (Bottom Navigation Bar) con las tres pestañas y navegación funcional.
-* Pestaña Home con bienvenida y tarjeta del subcampeón Argentina.
-* Pestaña España con sus tres componentes.
-* Pestaña Acerca de con foto y descripción de cada estudiante.
+* Pestaña Home con bienvenida.
+* Pestaña Candidatos.
+* Pestaña Estadistica.
 * Reutilización de componentes, props y organización del código.
 
 
